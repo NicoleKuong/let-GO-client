@@ -33,13 +33,17 @@ class LoginContainer extends Component {
             <h1>You are logged in</h1>
           </div>
         ) : (
-          <LoginForm
-            text="Login"
-            values={this.state}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            user={this.props.user}
-          />
+          <div>
+            <h2 className="login-title">Login</h2>
+            <br />
+            <LoginForm
+              text="Login"
+              values={this.state}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              user={this.props.user}
+            />
+          </div>
         )}
       </div>
     );

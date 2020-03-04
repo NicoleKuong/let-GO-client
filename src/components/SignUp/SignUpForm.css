@@ -1,5 +1,10 @@
 .form {
   text-align: center;
-  margin-left: 30%;
-  margin-right: 30%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.signup-title {
+  text-align: center;
+  margin-top: 20px;
 }

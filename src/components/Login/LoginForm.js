@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-// import "./LoginForm.css";
+import "./LoginForm.css";
 
 const LoginForm = props => {
   return (

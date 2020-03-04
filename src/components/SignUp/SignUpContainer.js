@@ -7,7 +7,13 @@ class SignupFormContainer extends Component {
   state = {
     username: "",
     email: "",
-    password: ""
+    password: "",
+    firstName: "",
+    lastName: "",
+    streetName: "",
+    houseNumber: 0,
+    city: "",
+    telephoneNumber: 0
   };
 
   handleChange = event => {
@@ -36,6 +42,8 @@ class SignupFormContainer extends Component {
     return (
       <div>
         {this.props.user.userCreated ? <h1>Account created</h1> : null}
+        <h2 className="signup-title">Sign Up</h2>
+        <br />
         <SignUpForm
           text={"Signup"}
           handleSubmit={this.handleSubmit}
