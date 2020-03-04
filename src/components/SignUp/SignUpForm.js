@@ -3,7 +3,7 @@ import { Form, Button, Col } from "react-bootstrap";
 import "./SignUpForm.css";
 
 const SignUpForm = props => {
-  console.log("signup props", props);
+  // console.log("signup props", props);
   return (
     <Form className="form" onSubmit={props.handleSubmit}>
       <Form.Row>
@@ -20,20 +20,39 @@ const SignUpForm = props => {
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            onChange={props.handleChange}
+            type="password"
+            name="password"
+            value={props.values.password}
+            placeholder="Password"
+          />
         </Form.Group>
       </Form.Row>
 
-      <Form.Group as={Col} controlId="formGridUserName">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control
-          onChange={props.handleChange}
-          type="username"
-          name="username"
-          value={props.values.username}
-          placeholder="Enter username"
-        />
-      </Form.Group>
+      <Form.Row>
+        <Form.Group as={Col} controlId="formGridfirstName">
+          <Form.Label>First Name:</Form.Label>
+          <Form.Control
+            onChange={props.handleChange}
+            type="text"
+            name="firstName"
+            value={props.values.firstName}
+            placeholder="Enter first name"
+          />
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridlastName">
+          <Form.Label>Last Name:</Form.Label>
+          <Form.Control
+            onChange={props.handleChange}
+            type="text"
+            name="lastName"
+            value={props.values.lastName}
+            placeholder="Enter last name"
+          />
+        </Form.Group>
+      </Form.Row>
 
       <Form.Row>
         <Form.Group as={Col} controlId="formGridStreetName">
@@ -74,8 +93,8 @@ const SignUpForm = props => {
           <Form.Label>Telephone Number:</Form.Label>
           <Form.Control
             onChange={props.handleChange}
-            type="number"
-            name="telepphoneNumber"
+            type="tel"
+            name="telephoneNumber"
             value={props.values.telephoneNumber}
           />
         </Form.Group>

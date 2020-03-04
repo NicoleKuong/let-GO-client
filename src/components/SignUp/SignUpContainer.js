@@ -11,12 +11,16 @@ class SignupFormContainer extends Component {
     firstName: "",
     lastName: "",
     streetName: "",
-    houseNumber: null,
+    houseNumber: "",
     city: "",
-    telephoneNumber: null,
-    latitude: null,
-    longitude: null
+    telephoneNumber: "",
+    latitude: "",
+    longitude: ""
   };
+
+  componentDidMount() {
+    this.getLocation();
+  }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -24,8 +28,7 @@ class SignupFormContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("hello state", this.state);
-
+    // console.log("hello state", this.state);
     this.props.dispatch(
       signUp(
         this.state.username,
@@ -49,16 +52,16 @@ class SignupFormContainer extends Component {
       firstName: "",
       lastName: "",
       streetName: "",
-      houseNumber: null,
+      houseNumber: "",
       city: "",
-      telephoneNumber: null,
-      latitude: null,
-      longitude: null
+      telephoneNumber: "",
+      latitude: "",
+      longitude: ""
     });
   };
 
   getLocation = () => {
-    console.log("sign up click");
+    // console.log("sign up click");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(this.getCoordinates);
     } else {
@@ -67,12 +70,13 @@ class SignupFormContainer extends Component {
   };
 
   getCoordinates = position => {
+    // console.log("position", position);
     const { latitude, longitude } = position.coords;
     this.setState({ latitude, longitude });
   };
 
   render() {
-    console.log(this.state);
+    // console.log("=====", this.state);
     return (
       <div>
         {this.props.user.userCreated ? <h1>Account created</h1> : null}
