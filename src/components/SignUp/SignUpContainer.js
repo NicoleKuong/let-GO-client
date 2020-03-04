@@ -11,9 +11,11 @@ class SignupFormContainer extends Component {
     firstName: "",
     lastName: "",
     streetName: "",
-    houseNumber: 0,
+    houseNumber: null,
     city: "",
-    telephoneNumber: 0
+    telephoneNumber: null,
+    latitude: null,
+    longitude: null
   };
 
   handleChange = event => {
@@ -22,23 +24,55 @@ class SignupFormContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log(this.state);
+    console.log("hello state", this.state);
+
     this.props.dispatch(
       signUp(
         this.state.username,
         this.state.email,
         this.state.password,
+        this.state.firstName,
+        this.state.lastName,
+        this.state.streetName,
+        this.state.houseNumber,
+        this.state.city,
+        this.state.telephoneNumber,
+        this.state.latitude,
+        this.state.longitude,
         this.props.history
       )
     );
     this.setState({
       username: "",
       email: "",
-      password: ""
+      password: "",
+      firstName: "",
+      lastName: "",
+      streetName: "",
+      houseNumber: null,
+      city: "",
+      telephoneNumber: null,
+      latitude: null,
+      longitude: null
     });
   };
 
+  getLocation = () => {
+    console.log("sign up click");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.getCoordinates);
+    } else {
+      alert("Geolocation is not supported");
+    }
+  };
+
+  getCoordinates = position => {
+    const { latitude, longitude } = position.coords;
+    this.setState({ latitude, longitude });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <div>
         {this.props.user.userCreated ? <h1>Account created</h1> : null}
@@ -49,6 +83,7 @@ class SignupFormContainer extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           values={this.state}
+          getLocation={this.getLocation}
         />
       </div>
     );

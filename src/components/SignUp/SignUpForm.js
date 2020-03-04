@@ -81,7 +81,7 @@ const SignUpForm = props => {
         </Form.Group>
       </Form.Row>
 
-      <Button variant="primary" type="submit">
+      <Button onClick={props.getLocation} variant="primary" type="submit">
         SIGN UP
       </Button>
     </Form>
