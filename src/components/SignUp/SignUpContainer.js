@@ -63,7 +63,10 @@ class SignupFormContainer extends Component {
   getLocation = () => {
     // console.log("sign up click");
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.getCoordinates);
+      navigator.geolocation.getCurrentPosition(
+        this.getCoordinates,
+        this.handleLocationError
+      );
     } else {
       alert("Geolocation is not supported");
     }
@@ -73,6 +76,27 @@ class SignupFormContainer extends Component {
     // console.log("position", position);
     const { latitude, longitude } = position.coords;
     this.setState({ latitude, longitude });
+  };
+
+  handleLocationError = error => {
+    switch (error.code) {
+      case error.PERMISSION_DENIED:
+        alert(
+          "Unable to create account. User denied the request for Geolocation."
+        );
+        break;
+      case error.POSITION_UNAVAILABLE:
+        alert("Location information is unavailable.");
+        break;
+      case error.TIMEOUT:
+        alert("The request to get user location timed out.");
+        break;
+      case error.UNKNOWN_ERROR:
+        alert("An unknown error occurred.");
+        break;
+      default:
+        alert("An unknown error occurred.");
+    }
   };
 
   render() {

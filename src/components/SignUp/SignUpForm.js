@@ -6,6 +6,16 @@ const SignUpForm = props => {
   // console.log("signup props", props);
   return (
     <Form className="form" onSubmit={props.handleSubmit}>
+      <Form.Group as={Col} controlId="formGridUserName">
+        <Form.Label>User Name:</Form.Label>
+        <Form.Control
+          onChange={props.handleChange}
+          type="username"
+          name="username"
+          value={props.values.username}
+          placeholder="Enter username"
+        />
+      </Form.Group>
       <Form.Row>
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>Email</Form.Label>
