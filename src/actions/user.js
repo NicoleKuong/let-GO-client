@@ -9,10 +9,36 @@ function signUpSuccess() {
 }
 
 //create user
-export const signUp = (username, email, password, history) => dispatch => {
+export const signUp = (
+  username,
+  email,
+  password,
+  firstName,
+  lastName,
+  streetName,
+  houseNumber,
+  city,
+  telephoneNumber,
+  latitude,
+  longitude,
+  history
+) => dispatch => {
+  // console.log("==========", username, email, password);
   request
     .post(`${databaseUrl}/user`)
-    .send({ username, email, password })
+    .send({
+      username,
+      email,
+      password,
+      firstName,
+      lastName,
+      streetName,
+      houseNumber,
+      city,
+      telephoneNumber,
+      latitude,
+      longitude
+    })
 
     .then(response => {
       // console.log("response test", response);
