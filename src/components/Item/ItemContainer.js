@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import ItemForm from "./ItemForm";
 import { connect } from "react-redux";
-
+import { createItem } from "../../actions/item";
+import { ImageUploadContainer } from "../ImageUpload/ImageUploadContainer";
 import "./ItemForm.css";
 
 class ItemContainer extends Component {
@@ -20,7 +21,7 @@ class ItemContainer extends Component {
     event.preventDefault();
     // console.log(this.state);
     this.props.dispatch(
-      createEvent(
+      createItem(
         this.state.title,
         this.state.description,
         this.state.price,
@@ -38,7 +39,8 @@ class ItemContainer extends Component {
   render() {
     return (
       <div>
-        <h2 className="create-event-title">Share Your Item</h2>
+        <h2 className="create-item-title">Share Your Item</h2>
+        <ImageUploadContainer />
         <ItemForm
           text={"itemForm"}
           handleSubmit={this.handleSubmit}
