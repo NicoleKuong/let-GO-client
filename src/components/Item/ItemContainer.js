@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ItemForm from "./ItemForm";
 import { connect } from "react-redux";
 import { createItem } from "../../actions/item";
-import { ImageUploadContainer } from "../ImageUpload/ImageUploadContainer";
+import ImageUploadContainer from "../ImageUpload/ImageUploadContainer";
 import "./ItemForm.css";
 
 class ItemContainer extends Component {

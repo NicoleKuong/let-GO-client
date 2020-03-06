@@ -1,43 +1,81 @@
 import React, { Component, useState } from "react";
+import Dropzone from "react-dropzone";
+import request from "superagent";
+import "./ImageUpload.css";
 
-// import { useDropzone } from "./node_modules/react-dropzone";
-export function ImageUploadContainer() {
-  const [image, setImage] = useState("");
-  const [loading, setLoading] = useState(false);
+const CLOUDINARY_UPLOAD_PRESET = "nkuong";
+const CLOUDINARY_UPLOAD_URL =
+  "https://api.cloudinary.com/v1_1/dwkbnuezz/image/upload";
 
-  const uploadImage = async e => {
-    const files = e.target.files;
-    const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "nkuong");
-    setLoading(true);
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dwkbnuezz/image/upload",
-      {
-        method: "POST",
-        body: data
-      }
-    );
-    const file = await res.json();
-
-    setImage(file.secure_url);
-    setLoading(false);
+export default class ImageUploadContainer extends Component {
+  state = {
+    // uploadedFile: null,
+    imageUrl: []
   };
 
-  return (
-    <div className="App">
-      <h1>Upload Image</h1>
-      <input
-        type="file"
-        name="file"
-        placeholder="Upload an image"
-        onChange={uploadImage}
-      />
-      {loading ? (
-        <h3>Loading...</h3>
-      ) : (
-        <img src={image} style={{ width: "300px" }} />
-      )}
-    </div>
-  );
+  // const [image, setImage] = useState("");
+  // const [loading, setLoading] = useState(false);
+
+  onImageDrop = files => {
+    this.setState({
+      imageUrl: files
+    });
+
+    this.handleImageUpload(files);
+  };
+
+  handleImageUpload = files => {
+    let upload = request
+      .post(CLOUDINARY_UPLOAD_URL)
+      .field("upload_preset", CLOUDINARY_UPLOAD_PRESET)
+      .field("file", files)
+      .field("timestamp", (Date.now() / 1000) | 0);
+
+    upload.end((err, response) => {
+      if (err) {
+        console.error(err);
+      }
+
+      if (response.body.secure_url !== "") {
+        console.log("=====", response.body);
+        this.setState({
+          imageUrl: response.body.secure_url
+        });
+      }
+    });
+  };
+
+  render() {
+    console.log("state in image", this.state);
+    return (
+      <form>
+        <div className="FileUpload">
+          <Dropzone onDrop={this.onImageDrop} accept="image/*" multiple={true}>
+            {({ getRootProps, getInputProps }) => {
+              return (
+                <div {...getRootProps()}>
+                  <input {...getInputProps()} />
+                  {
+                    <p className="UploadMessage">
+                      Drag an image here, or click to select image to upload.
+                    </p>
+                  }
+                </div>
+              );
+            }}
+          </Dropzone>
+        </div>
+
+        <div>
+          {this.state.imageUrl === "" ? null : (
+            <div>
+              <img src={this.state.imageUrl} style={{ width: "300px" }} />
+            </div>
+          )}
+        </div>
+      </form>
+    );
+  }
 }
+
+// export default ImageUploadContainer;
