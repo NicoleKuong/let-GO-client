@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default class ItemList extends Component {
   render() {
-    const { item } = this.props;
+    const { items } = this.props;
     const { user } = this.props;
     // console.log("props", this.props);
     // console.log("userLoggedIn booloan", this.props.userLoggedIn === true);

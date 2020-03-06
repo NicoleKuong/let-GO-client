@@ -10,6 +10,7 @@ import {
 import SignUpContainer from "./components/SignUp/SignUpContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import ItemContainer from "./components/Item/ItemContainer";
+import ItemListContainer from "./components/ItemList/ItemListContainer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/signup" component={SignUpContainer} />
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/items" component={ItemContainer} />
+          <Route exact path="/" component={ItemListContainer} />
         </Switch>
       </Router>
     </div>

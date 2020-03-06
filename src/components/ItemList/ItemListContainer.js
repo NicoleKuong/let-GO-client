@@ -1,5 +1,5 @@
 import React from "react";
-import { getItem } from "../../actions/item";
+import { getItems } from "../../actions/item";
 import { connect } from "react-redux";
 import ItemList from "./ItemList";
 // import "./ItemList.css";
@@ -15,7 +15,7 @@ class ItemListContainer extends React.Component {
           please LOGIN to create an event or SIGNUP to create an account
         </p>
         <br /> */}
-        <ItemList items={this.props.items} user={this.props.user} />;
+        <ItemList items={this.props.items} user={this.props.users} />;
       </div>
     );
   }
@@ -24,7 +24,7 @@ class ItemListContainer extends React.Component {
 const mapStateToProps = state => {
   console.log("STATE IN itemList", state);
   return {
-    user: state.user,
+    users: state.user,
     items: state.items
   };
 };
