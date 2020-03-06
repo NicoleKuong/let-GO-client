@@ -84,11 +84,7 @@
 import React, { Component, useState } from "react";
 import "react-dropzone-uploader/dist/styles.css";
 import Dropzone from "react-dropzone-uploader";
-import axios from "axios";
-
-// const CLOUDINARY_UPLOAD_PRESET = "nkuong";
-// const CLOUDINARY_UPLOAD_URL =
-//   "https://api.cloudinary.com/v1_1/dwkbnuezz/image/upload";
+// import axios from "axios";
 
 export default class ImageUploadContainer extends Component {
   state = {
@@ -99,13 +95,20 @@ export default class ImageUploadContainer extends Component {
   // specify upload params and url for your files
   getUploadParams = ({ file, meta }) => {
     const body = new FormData();
-    body.append("fileField", file);
+    console.log("body", body);
+    body.append("file", file);
+    body.append("api_key", 941618776526744);
     body.append("upload_preset", "nkuong");
 
     return {
       url: "https://api.cloudinary.com/v1_1/dwkbnuezz/image/upload",
       body,
       headers: { "X-Requested-With": "XMLHttpRequest" }
+      // }.then(response => {
+      //   const data = response.data;
+      //   const fileURL = data.secure_url; // You should store this URL for future references in your app
+      //   console.log("url", fileURL);
+      // console.log("====", response.body);
     };
   };
 

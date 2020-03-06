@@ -38,11 +38,11 @@ export const createItem = (title, description, price, availableDate) => (
   dispatch,
   getState
 ) => {
-  console.log("getstate in event", getState());
+  console.log("getstate in item", getState());
   const token = getState().user.token;
   const userId = getState().user.userId;
   request
-    .post(`${databaseUrl}/events`)
+    .post(`${databaseUrl}/items`)
     .set("Authorization", `Bearer ${token}`)
     .send({ title, description, price, availableDate, userId })
     .then(response => {
