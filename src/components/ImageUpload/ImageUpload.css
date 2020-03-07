@@ -1,0 +1,9 @@
+.FileUpload {
+  margin-left: 100px;
+  margin-right: 100px;
+  border: dashed 1px gray;
+}
+.UploadMessage {
+  text-align: center;
+  padding: 10px;
+}

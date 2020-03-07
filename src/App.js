@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import SignUpContainer from "./components/SignUp/SignUpContainer";
 import LoginContainer from "./components/Login/LoginContainer";
+import ItemContainer from "./components/Item/ItemContainer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/signup" component={SignUpContainer} />
           <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/items" component={ItemContainer} />
         </Switch>
       </Router>
     </div>
