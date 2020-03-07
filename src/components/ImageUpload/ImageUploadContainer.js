@@ -81,12 +81,13 @@
 
 // // export default ImageUploadContainer;
 
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import "react-dropzone-uploader/dist/styles.css";
 import Dropzone from "react-dropzone-uploader";
-// import axios from "axios";
+import { connect } from "react-redux";
+import { createImage } from "../../actions/image";
 
-export default class ImageUploadContainer extends Component {
+class ImageUploadContainer extends Component {
   state = {
     // uploadedFile: null,
     imageUrl: []
@@ -97,18 +98,12 @@ export default class ImageUploadContainer extends Component {
     const body = new FormData();
     console.log("body", body);
     body.append("file", file);
-    body.append("api_key", 941618776526744);
     body.append("upload_preset", "nkuong");
 
     return {
       url: "https://api.cloudinary.com/v1_1/dwkbnuezz/image/upload",
       body,
       headers: { "X-Requested-With": "XMLHttpRequest" }
-      // }.then(response => {
-      //   const data = response.data;
-      //   const fileURL = data.secure_url; // You should store this URL for future references in your app
-      //   console.log("url", fileURL);
-      // console.log("====", response.body);
     };
   };
 
@@ -119,7 +114,20 @@ export default class ImageUploadContainer extends Component {
 
   // receives array of files that are done uploading when submit button is clicked
   handleSubmit = (files, allFiles) => {
-    console.log(files.map(f => f.meta));
+    // event.preventDefault();
+    const responses = files.map(f => JSON.parse(f.xhr.responseText));
+    const urls = responses.map(response => {
+      return response.url;
+    });
+    console.log("urls", urls);
+    this.setState({ imageUrl: [urls] });
+    console.log("local", this.state.imageUrl);
+    this.props.dispatch(
+      createImage({
+        imageUrl: this.state.imageUrl
+        // itemId: this.props.match.params.itemId
+      })
+    );
     allFiles.forEach(f => f.remove());
   };
 
@@ -127,7 +135,6 @@ export default class ImageUploadContainer extends Component {
     return (
       <Dropzone
         getUploadParams={this.getUploadParams}
-        // onDrop={this.onImageDrop}
         onChangeStatus={this.handleChangeStatus}
         onSubmit={this.handleSubmit}
         accept="image/*"
@@ -135,3 +142,13 @@ export default class ImageUploadContainer extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  // console.log("STATE IN image Upload", state);
+  return {
+    users: state.user,
+    items: state.items
+  };
+};
+
+export default connect(mapStateToProps)(ImageUploadContainer);

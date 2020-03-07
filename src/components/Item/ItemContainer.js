@@ -40,7 +40,7 @@ class ItemContainer extends Component {
     return (
       <div>
         <h2 className="create-item-title">Share Your Item</h2>
-        <ImageUploadContainer />
+        <ImageUploadContainer itemId={this.props.match.params.itemId} />
         <ItemForm
           text={"itemForm"}
           handleSubmit={this.handleSubmit}
