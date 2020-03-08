@@ -12,10 +12,6 @@ export default class ItemList extends Component {
 
     return (
       <div>
-        {/* {!this.props.userLoggedIn && <LoginFormContainer />}
-        {!this.props.userLoggedIn && <SignUpFormContainer />}
-        {this.props.userLoggedIn && <CreateFormContainer />} */}
-
         {!items && "Loading..."}
         {items && (
           <div>

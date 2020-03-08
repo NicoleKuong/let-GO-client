@@ -4,7 +4,8 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 const ItemForm = props => {
-  console.log("itemform props", props);
+  // console.log("itemform props", props);
+  const { itemId } = props;
   return (
     <Form className="itemform" onSubmit={props.handleSubmit}>
       <Form.Group controlId="formUserName">
@@ -51,6 +52,7 @@ const ItemForm = props => {
       <Button variant="primary" type="submit">
         SHARE
       </Button>
+      <Link to={`items/${itemId}/images`}>Link</Link>
     </Form>
   );
 };
