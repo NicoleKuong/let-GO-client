@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ItemForm from "./ItemForm";
 import { connect } from "react-redux";
 import { createItem } from "../../actions/item";
-import ImageUploadContainer from "../ImageUpload/ImageUploadContainer";
 import "./ItemForm.css";
 
 class ItemContainer extends Component {
@@ -37,15 +36,18 @@ class ItemContainer extends Component {
   };
 
   render() {
+    const itemID = this.props.items.map(item => item.id);
+    // console.log("itemconId", itemID);
     return (
       <div>
         <h2 className="create-item-title">Share Your Item</h2>
-        <ImageUploadContainer itemId={this.props.match.params.itemId} />
+
         <ItemForm
           text={"itemForm"}
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           values={this.state}
+          itemId={itemID}
         />
       </div>
       //make a link here to go to event list
@@ -54,9 +56,10 @@ class ItemContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN MSTP", state);
+  // console.log("STATE IN itemCon", state);
   return {
-    user: state.user
+    user: state.user,
+    items: state.items
   };
 };
 

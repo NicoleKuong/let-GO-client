@@ -13,9 +13,12 @@ function newImage(payload) {
   };
 }
 
-export const createImage = (imageUrl, itemId) => (dispatch, getState) => {
+export const createImage = imageUrl => (dispatch, getState) => {
   // console.log("getstate in image", getState());
+  // console.log("~~~~~", imageUrl);
   const token = getState().user.token;
+  const history = imageUrl.history;
+  const itemId = imageUrl.itemId;
 
   request
     .post(`${databaseUrl}/items/${itemId}/images`)
@@ -25,7 +28,7 @@ export const createImage = (imageUrl, itemId) => (dispatch, getState) => {
       console.log("createImage", response);
       const action = newImage(response.body);
       dispatch(action);
-      // history.push(`/events/${eventId}`);
+      history.push(`/`);
     })
     .catch(console.error);
 };

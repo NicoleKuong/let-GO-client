@@ -120,12 +120,16 @@ class ImageUploadContainer extends Component {
       return response.url;
     });
     console.log("urls", urls);
-    this.setState({ imageUrl: [urls] });
+    this.setState({ imageUrl: urls });
     console.log("local", this.state.imageUrl);
+
+    console.log("historyyyy", this.props.history);
     this.props.dispatch(
       createImage({
-        imageUrl: this.state.imageUrl
-        // itemId: this.props.match.params.itemId
+        imageUrl: this.state.imageUrl,
+
+        history: this.props.history,
+        itemId: parseInt(this.props.match.params.itemId)
       })
     );
     allFiles.forEach(f => f.remove());
@@ -144,7 +148,7 @@ class ImageUploadContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN image Upload", state);
+  console.log("STATE IN image Upload", state);
   return {
     users: state.user,
     items: state.items
