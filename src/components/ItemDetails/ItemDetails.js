@@ -11,7 +11,6 @@ export default class ItemDetails extends Component {
 
     console.log("currentitem", currentItem);
 
-    // console.log("do we have userId", items);
     return (
       <div>
         <h2>Item Details</h2>
@@ -32,9 +31,9 @@ export default class ItemDetails extends Component {
         </Carousel>
 
         <br />
-        <p>Title:</p>
-        <p>Description:</p>
-        <p>Price:</p>
+        <p>Title:{currentItem.title}</p>
+        <p>Description: {currentItem.description}</p>
+        <p>Price: {currentItem.price}</p>
         {currentItem.user && (
           <Map
             center={[currentItem.user.latitude, currentItem.user.longitude]}

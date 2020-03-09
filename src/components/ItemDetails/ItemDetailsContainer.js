@@ -13,7 +13,7 @@ class ItemDetailsContainer extends Component {
           // images={this.props.images}
           items={this.props.items}
           itemID={this.props.match.params.itemId}
-          // user={this.props.user}
+          user={this.props.user}
         />
       </div>
     );
@@ -21,7 +21,7 @@ class ItemDetailsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN itemdetailsCon", state);
+  console.log("STATE IN itemdetailsCon", state);
   return {
     user: state.user,
     items: state.items
