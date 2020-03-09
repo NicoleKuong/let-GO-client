@@ -4,13 +4,16 @@ import ItemDetails from "./ItemDetails";
 
 class ItemDetailsContainer extends Component {
   render() {
-    console.log("image props", this.props.images);
+    // console.log("image props", this.props.images);
+    // console.log("params22", this.props.match.params.itemId);
+
     return (
       <div>
         <ItemDetails
-          images={this.props.images}
+          // images={this.props.images}
           items={this.props.items}
-          user={this.props.user}
+          itemID={this.props.match.params.itemId}
+          // user={this.props.user}
         />
       </div>
     );
@@ -18,11 +21,10 @@ class ItemDetailsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE IN itemdetailsCon", state);
+  // console.log("STATE IN itemdetailsCon", state);
   return {
     user: state.user,
-    items: state.items,
-    images: state.images
+    items: state.items
   };
 };
 

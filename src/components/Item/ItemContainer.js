@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ItemForm from "./ItemForm";
 import { connect } from "react-redux";
 import { createItem } from "../../actions/item";
+import ImageUploadContainer from "../ImageUpload/ImageUploadContainer";
 import "./ItemForm.css";
 
 class ItemContainer extends Component {
@@ -9,7 +10,13 @@ class ItemContainer extends Component {
     title: "",
     description: "",
     price: "",
-    availableDate: ""
+    availableDate: "",
+    imageUrls: []
+  };
+  setImgUrls = async urls => {
+    console.log("getting urls", urls);
+    await this.setState({ imageUrls: urls });
+    console.log("local state for item", this.state);
   };
 
   handleChange = event => {
@@ -19,19 +26,16 @@ class ItemContainer extends Component {
   handleSubmit = event => {
     event.preventDefault();
     // console.log(this.state);
-    this.props.dispatch(
-      createItem(
-        this.state.title,
-        this.state.description,
-        this.state.price,
-        this.state.availableDate
-      )
-    );
+    //send images to cloud
+
+    this.props.dispatch(createItem(this.state));
+    console.log("this.state in dispatch", this.state);
     this.setState({
       title: "",
       description: "",
       price: "",
-      availableDate: ""
+      availableDate: "",
+      imageUrls: []
     });
   };
 
@@ -41,7 +45,7 @@ class ItemContainer extends Component {
     return (
       <div>
         <h2 className="create-item-title">Share Your Item</h2>
-
+        <ImageUploadContainer setImgUrls={this.setImgUrls} />
         <ItemForm
           text={"itemForm"}
           handleSubmit={this.handleSubmit}
@@ -50,7 +54,6 @@ class ItemContainer extends Component {
           itemId={itemID}
         />
       </div>
-      //make a link here to go to event list
     );
   }
 }

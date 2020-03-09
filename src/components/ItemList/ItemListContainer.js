@@ -15,7 +15,7 @@ class ItemListContainer extends React.Component {
           please LOGIN to create an event or SIGNUP to create an account
         </p>
         <br /> */}
-        <ItemList items={this.props.items} user={this.props.users} />;
+        <ItemList items={this.props.items} user={this.props.users} />
       </div>
     );
   }

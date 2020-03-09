@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "react-dropzone-uploader/dist/styles.css";
 import Dropzone from "react-dropzone-uploader";
-import { connect } from "react-redux";
-import { createImage } from "../../actions/image";
+// import { connect } from "react-redux";
+// import { createImage } from "../../actions/image";
 
-class ImageUploadContainer extends Component {
-  state = {
-    // uploadedFile: null,
-    imageUrl: []
-  };
+export default class ImageUploadContainer extends Component {
+  // state = {
+  //   // uploadedFile: null,
+  //   imageUrl: []
+  // };
 
   // specify upload params and url for your files
   getUploadParams = ({ file, meta }) => {
@@ -30,25 +30,22 @@ class ImageUploadContainer extends Component {
   };
 
   // receives array of files that are done uploading when submit button is clicked
-  handleSubmit = (files, allFiles) => {
-    // event.preventDefault();
+  handleSubmit = async (files, allFiles) => {
     const responses = files.map(f => JSON.parse(f.xhr.responseText));
     const urls = responses.map(response => {
       return response.url;
     });
-    console.log("urls", urls);
-    this.setState({ imageUrl: urls });
-    console.log("local", this.state.imageUrl);
+    // await this.setState({ imageUrl: urls });
+    console.log("cloud urls", urls);
 
-    console.log("historyyyy", this.props.history);
-    this.props.dispatch(
-      createImage({
-        imageUrl: this.state.imageUrl,
-
-        history: this.props.history,
-        itemId: parseInt(this.props.match.params.itemId)
-      })
-    );
+    await this.props.setImgUrls(urls);
+    // this.props.dispatch(
+    //   createImage({
+    //     imageUrl: this.state.imageUrl,
+    //     history: this.props.history,
+    //     itemId: parseInt(this.props.match.params.itemId)
+    //   })
+    // );
     allFiles.forEach(f => f.remove());
   };
 
@@ -64,12 +61,12 @@ class ImageUploadContainer extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  console.log("STATE IN image Upload", state);
-  return {
-    users: state.user,
-    items: state.items
-  };
-};
+// const mapStateToProps = state => {
+//   console.log("STATE IN image Upload", state);
+//   return {
+//     users: state.user,
+//     items: state.items
+//   };
+// };
 
-export default connect(mapStateToProps)(ImageUploadContainer);
+// export default connect(mapStateToProps)(ImageUploadContainer);
