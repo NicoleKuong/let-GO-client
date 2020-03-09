@@ -19,7 +19,7 @@ export const getItems = () => (dispatch, getState) => {
   if (!items.length) {
     request(`${databaseUrl}/items`)
       .then(response => {
-        // console.log("response test", response);
+        console.log("response test!!!!", response);
         const action = allItems(response.body);
         dispatch(action);
       })
@@ -34,17 +34,16 @@ function newItem(payload) {
   };
 }
 
-export const createItem = (title, description, price, availableDate) => (
-  dispatch,
-  getState
-) => {
+export const createItem = itemData => (dispatch, getState) => {
+  // console.log("*****", title, description, price, availableDate, imageUrl);
   console.log("getstate in item", getState());
   const token = getState().user.token;
   const userId = getState().user.userId;
+  const data = { ...itemData, userId };
   request
     .post(`${databaseUrl}/items`)
     .set("Authorization", `Bearer ${token}`)
-    .send({ title, description, price, availableDate, userId })
+    .send(data)
     .then(response => {
       const action = newItem(response.body);
       dispatch(action);

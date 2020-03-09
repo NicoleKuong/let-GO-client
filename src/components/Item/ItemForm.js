@@ -48,11 +48,11 @@ const ItemForm = props => {
           value={props.values.availableDate}
         />
       </Form.Group>
-
+      {/* <Link to="/"> */}
       <Button variant="primary" type="submit">
         SHARE
       </Button>
-      <Link to={`items/${itemId}/images`}>Link</Link>
+      {/* </Link> */}
     </Form>
   );
 };

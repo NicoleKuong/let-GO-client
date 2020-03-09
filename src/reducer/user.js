@@ -2,9 +2,15 @@ import { USER_CREATED, LOGIN_SUCCESS } from "../actions/user";
 
 const initialState = {
   userId: null,
-  userCreated: false,
+
   token: null,
-  username: null
+  userCreated: false,
+  username: null,
+  firstName: null,
+  lastName: null,
+  city: null,
+  latitude: null,
+  longitude: null
 };
 
 export default (state = initialState, action = {}) => {
@@ -19,8 +25,12 @@ export default (state = initialState, action = {}) => {
         ...state,
         userId: action.payload.userId,
         token: action.payload.token,
-        username: action.payload.username
-        // currentUserId: action.payload.currentUserId
+        username: action.payload.username,
+        firstName: action.payload.firstName,
+        lastName: action.payload.lastName,
+        city: action.payload.city,
+        latitude: action.payload.latitude,
+        longitude: action.payload.longitude
       };
     default:
       return state;
