@@ -49,74 +49,53 @@ export const signUp = (
     .catch(console.error);
 };
 
-//create user
-// export function signUp(username, email, password, history) {
-//   return async function(dispatch, getState) {
-//     const response = await axios.post(`${databaseUrl}/user`, {
-//       username: username,
-//       email: email,
-//       password: password
-//     });
-
-//     if (response.status === 201) {
-//       dispatch(signUpSuccess());
-//       history.push("/login");
-//     }
-//   };
-// }
-
-function loginSuccess(token, userId, username) {
+function loginSuccess(
+  token,
+  userId,
+  username,
+  firstName,
+  lastName,
+  city,
+  latitude,
+  longitude
+) {
   // console.log("is this an id? 2", userId);
   return {
     type: LOGIN_SUCCESS,
-    payload: { token: token, userId: userId, username: username }
+    payload: {
+      token: token,
+      userId: userId,
+      username: username,
+      firstName: firstName,
+      lastName: lastName,
+      city: city,
+      latitude: latitude,
+      longitude: longitude
+    }
   };
 }
 
 //login
 export const login = (email, password, history) => dispatch => {
+  // console.log("login", request.body);
   request
     .post(`${databaseUrl}/login`)
     .send({ email, password })
     .then(response => {
+      console.log("login response", response);
       const action = loginSuccess(
-        response.data.jwt,
-        response.data.userId,
-        response.data.username
+        response.body.jwt,
+        response.body.userId,
+        response.body.username,
+        response.body.firstName,
+        response.body.lastName,
+        response.body.city,
+        response.body.latitude,
+        response.body.longitude
       );
+
       dispatch(action);
       history.push("/");
     })
     .catch(console.error);
 };
-
-// export function login(email, password, history) {
-//   return async function(dispatch, getState) {
-//     // console.log(email, password);
-//     const response = await axios.post(`${databaseUrl}/login`, {
-//       email,
-//       password
-//     });
-//     console.log("this should contain an id", response);
-//     dispatch(
-//       loginSuccess(
-//         response.data.jwt,
-//         response.data.userId,
-//         response.data.username
-//       )
-//     );
-//     history.push("/");
-//   };
-// }
-
-// function updateUserSuccessful(object) {
-//   return {
-//     type: "UPDATE_USER",
-//     payload: object
-//   };
-// }
-// export function updateUser(object) {
-//   return async function(dispatch, getState) {
-//     dispatch(updateUserSuccessful(object));
-//   };
-// }

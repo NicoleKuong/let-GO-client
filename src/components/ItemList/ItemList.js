@@ -22,9 +22,9 @@ export default class ItemList extends Component {
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>Description: {item.description}</Card.Text>
                   <Card.Text>Price: {item.price}</Card.Text>
-                  {/* <Link to={`events/${event.id}`}> */}
-                  <Button variant="primary">View Details</Button>
-                  {/* </Link> */}
+                  <Link to={`items/${item.id}`}>
+                    <Button variant="primary">View Details</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             ))}
