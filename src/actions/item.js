@@ -2,6 +2,7 @@ import request from "superagent";
 
 export const ALL_ITEMS = "ALL_ITEMS";
 export const NEW_ITEM = "NEW_ITEM";
+export const FIND_BY_LOCATION = "FIND_BY_LOCATION";
 
 const databaseUrl = "http://localhost:4000";
 
@@ -35,8 +36,8 @@ function newItem(payload) {
 }
 
 export const createItem = itemData => (dispatch, getState) => {
-  console.log("itemData", itemData);
-  console.log("getState in item", getState());
+  // console.log("itemData", itemData);
+  // console.log("getState in item", getState());
   const token = getState().user.token;
   const userId = getState().user.userId;
   const data = { ...itemData, userId };
@@ -49,4 +50,20 @@ export const createItem = itemData => (dispatch, getState) => {
       dispatch(action);
     })
     .catch(console.error);
+};
+
+function findByLocation(payload) {
+  return {
+    type: FIND_BY_LOCATION,
+    payload
+  };
+}
+
+export const searchByLocation = keyword => dispatch => {
+  if (keyword)
+    request(`${databaseUrl}/item/find/${keyword}`)
+      .then(response => {
+        dispatch(findByLocation(response.body));
+      })
+      .catch(console.error);
 };

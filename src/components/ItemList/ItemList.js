@@ -15,7 +15,7 @@ export default class ItemList extends Component {
           <div>
             {items.map((item, index) => (
               <Card className="item-card" style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={item.imageUrl} />
+                <Card.Img variant="top" src={item.images[0].imageUrl} />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>Description: {item.description}</Card.Text>

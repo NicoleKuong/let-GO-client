@@ -28,17 +28,8 @@ export default class ImageUploadContainer extends Component {
     const urls = responses.map(response => {
       return response.url;
     });
-    // await this.setState({ imageUrl: urls });
-    console.log("cloud urls", urls);
-
+    // console.log("cloud urls", urls);
     await this.props.setImgUrls(urls);
-    // this.props.dispatch(
-    //   createImage({
-    //     imageUrl: this.state.imageUrl,
-    //     history: this.props.history,
-    //     itemId: parseInt(this.props.match.params.itemId)
-    //   })
-    // );
     allFiles.forEach(f => f.remove());
   };
 

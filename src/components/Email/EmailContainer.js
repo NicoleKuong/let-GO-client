@@ -42,7 +42,7 @@ class EmailContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE IN EmailCon", state);
+  // console.log("STATE IN EmailCon", state);
   return {
     user: state.user,
     items: state.items
