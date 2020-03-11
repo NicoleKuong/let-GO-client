@@ -11,16 +11,16 @@ function newEmail(payload) {
   };
 }
 
-export const createEmail = emailData => (dispatch, getState) => {
-  // console.log("*****", emailData);
-  console.log("email getState", getState().user);
+export const createEmail = (emailData, ownerEmail) => (dispatch, getState) => {
+  // console.log("*****", emailData, ownerEmail);
+  // console.log("email getState", getState().user);
   const token = getState().user.token;
-  // const userId = getState().user.userId;
+  const data = { ...emailData, ownerEmail };
 
   request
     .post(`${databaseUrl}/sendMail`)
     .set("Authorization", `Bearer ${token}`)
-    .send(emailData)
+    .send(data)
     .then(response => {
       const action = newEmail(response.body);
       dispatch(action);

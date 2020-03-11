@@ -52,7 +52,7 @@ export default class ItemDetails extends Component {
             </Card.Header>
             <Accordion.Collapse eventKey="0">
               <Card.Body>
-                <EmailContainer />
+                <EmailContainer currentItem={currentItem} />
               </Card.Body>
             </Accordion.Collapse>
           </Card>

@@ -15,7 +15,10 @@ class EmailContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.props.dispatch(createEmail(this.state));
+    const ownerEmail = this.props.currentItem.user.email;
+    // console.log("currentitem props from email", this.props.currentItem);
+
+    this.props.dispatch(createEmail(this.state, ownerEmail));
     this.setState({
       name: "",
       message: ""
@@ -39,7 +42,7 @@ class EmailContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN EmailCon", state);
+  console.log("STATE IN EmailCon", state);
   return {
     user: state.user,
     items: state.items
