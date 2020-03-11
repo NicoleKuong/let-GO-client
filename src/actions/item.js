@@ -15,11 +15,11 @@ function allItems(payload) {
 export const getItems = () => (dispatch, getState) => {
   const state = getState();
   const { items } = state;
-  // console.log("state action", getState());
+
   if (!items.length) {
     request(`${databaseUrl}/items`)
       .then(response => {
-        console.log("response test!!!!", response);
+        // console.log("response test!!!!", response);
         const action = allItems(response.body);
         dispatch(action);
       })
@@ -35,8 +35,6 @@ function newItem(payload) {
 }
 
 export const createItem = itemData => (dispatch, getState) => {
-  // console.log("*****", title, description, price, availableDate, imageUrl);
-  console.log("getstate in item", getState());
   const token = getState().user.token;
   const userId = getState().user.userId;
   const data = { ...itemData, userId };

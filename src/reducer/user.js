@@ -2,7 +2,6 @@ import { USER_CREATED, LOGIN_SUCCESS } from "../actions/user";
 
 const initialState = {
   userId: null,
-
   token: null,
   userCreated: false,
   username: null,

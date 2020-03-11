@@ -14,9 +14,9 @@ class ItemContainer extends Component {
     imageUrls: []
   };
   setImgUrls = async urls => {
-    console.log("getting urls", urls);
+    // console.log("getting urls", urls);
     await this.setState({ imageUrls: urls });
-    console.log("local state for item", this.state);
+    // console.log("local state for item", this.state);
   };
 
   handleChange = event => {
@@ -25,11 +25,7 @@ class ItemContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log(this.state);
-    //send images to cloud
-
     this.props.dispatch(createItem(this.state));
-    console.log("this.state in dispatch", this.state);
     this.setState({
       title: "",
       description: "",
