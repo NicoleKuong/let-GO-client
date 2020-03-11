@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { Carousel, Button } from "react-bootstrap";
+import { Carousel, Button, Card, Accordion } from "react-bootstrap";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import EmailContainer from "../Email/EmailContainer";
+
 import "./ItemDetails.css";
 
 export default class ItemDetails extends Component {
@@ -12,10 +14,12 @@ export default class ItemDetails extends Component {
     console.log("currentitem", currentItem);
 
     return (
-      <div>
-        <h2>Item Details</h2>
+      <div className="item-container">
+        <h2 style={{ textAlign: "center" }}>Item Details</h2>
 
-        <Carousel>
+        <Carousel
+          style={{ width: "60%", marginRight: "20%", marginLeft: "20%" }}
+        >
           {currentItem.images &&
             currentItem.images.map(image => {
               return (
@@ -30,10 +34,30 @@ export default class ItemDetails extends Component {
             })}
         </Carousel>
 
+        <Card className="item-info">
+          <Card.Header>Title:{currentItem.title}</Card.Header>
+          <Card.Body>
+            <Card.Title>Price: {currentItem.price}</Card.Title>
+            <Card.Text>Description: {currentItem.description}</Card.Text>
+            <Card.Text>City: {currentItem.user.city}</Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Accordion defaultActiveKey="1" className="email-box">
+          <Card>
+            <Card.Header>
+              <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                Contact Owner
+              </Accordion.Toggle>
+            </Card.Header>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
+                <EmailContainer />
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion>
         <br />
-        <p>Title:{currentItem.title}</p>
-        <p>Description: {currentItem.description}</p>
-        <p>Price: {currentItem.price}</p>
         {currentItem.user && (
           <Map
             center={[currentItem.user.latitude, currentItem.user.longitude]}
