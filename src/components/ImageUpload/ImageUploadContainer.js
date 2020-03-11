@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import "react-dropzone-uploader/dist/styles.css";
 import Dropzone from "react-dropzone-uploader";
-// import { connect } from "react-redux";
-// import { createImage } from "../../actions/image";
 
 export default class ImageUploadContainer extends Component {
-  // state = {
-  //   // uploadedFile: null,
-  //   imageUrl: []
-  // };
-
   // specify upload params and url for your files
   getUploadParams = ({ file, meta }) => {
     const body = new FormData();
@@ -60,13 +53,3 @@ export default class ImageUploadContainer extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => {
-//   console.log("STATE IN image Upload", state);
-//   return {
-//     users: state.user,
-//     items: state.items
-//   };
-// };
-
-// export default connect(mapStateToProps)(ImageUploadContainer);
