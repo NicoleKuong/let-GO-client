@@ -70,7 +70,10 @@ export default class ItemDetails extends Component {
             <Marker
               position={[currentItem.user.latitude, currentItem.user.longitude]}
             >
-              <Popup>City: {currentItem.user.city}</Popup>
+              <Popup>
+                Address: {currentItem.user.houseNumber},{" "}
+                {currentItem.user.streetName}, {currentItem.user.city}
+              </Popup>
             </Marker>
           </Map>
         )}

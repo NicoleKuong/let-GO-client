@@ -35,6 +35,8 @@ function newItem(payload) {
 }
 
 export const createItem = itemData => (dispatch, getState) => {
+  console.log("itemData", itemData);
+  console.log("getState in item", getState());
   const token = getState().user.token;
   const userId = getState().user.userId;
   const data = { ...itemData, userId };

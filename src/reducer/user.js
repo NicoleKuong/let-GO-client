@@ -7,6 +7,8 @@ const initialState = {
   username: null,
   firstName: null,
   lastName: null,
+  streetName: null,
+  houseNumber: null,
   city: null,
   latitude: null,
   longitude: null
@@ -27,6 +29,8 @@ export default (state = initialState, action = {}) => {
         username: action.payload.username,
         firstName: action.payload.firstName,
         lastName: action.payload.lastName,
+        streetName: action.payload.streetName,
+        houseNumber: action.payload.houseNumber,
         city: action.payload.city,
         latitude: action.payload.latitude,
         longitude: action.payload.longitude
