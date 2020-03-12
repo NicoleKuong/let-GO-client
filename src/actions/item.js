@@ -61,7 +61,7 @@ function findByLocation(payload) {
 
 export const searchByLocation = keyword => dispatch => {
   if (keyword)
-    request(`${databaseUrl}/item/find/${keyword}`)
+    request(`${databaseUrl}/items/find/${keyword}`)
       .then(response => {
         dispatch(findByLocation(response.body));
       })

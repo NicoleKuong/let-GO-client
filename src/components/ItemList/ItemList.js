@@ -21,7 +21,7 @@ export default class ItemList extends Component {
                   <Card.Text>Description: {item.description}</Card.Text>
                   <Card.Text>Price: {item.price}</Card.Text>
                   <Link to={`items/${item.id}`}>
-                    <Button variant="primary">View Details</Button>
+                    <Button variant="dark">View Details</Button>
                   </Link>
                 </Card.Body>
               </Card>

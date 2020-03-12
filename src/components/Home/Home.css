@@ -1,0 +1,11 @@
+.nav-bar {
+  font-weight: 400;
+  font-size: larger;
+}
+
+.jumbotron {
+  background-image: url(../../assets/sharingAsCaring2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 350px;
+}

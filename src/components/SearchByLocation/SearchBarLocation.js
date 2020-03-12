@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "react-bootstrap";
 import { searchByLocation } from "../../actions/item";
+import "./SearchBarLocation.css";
 
 class SearchBarLocation extends Component {
   state = { keyword: "" };
@@ -11,6 +12,9 @@ class SearchBarLocation extends Component {
     console.log("submit?", this.props);
     // props.fetchProducts();
     this.props.searchByLocation(this.state.keyword);
+    this.setState({
+      keyword: ""
+    });
   };
 
   handleChange = event => {
@@ -19,18 +23,24 @@ class SearchBarLocation extends Component {
 
   render() {
     return (
-      <div>
-        <Form onSubmit={this.onSubmit}>
+      <div className="search-bar-container">
+        <Form
+          className="search-bar-location"
+          onSubmit={this.handleSubmit}
+          inline
+        >
           <Form.Group controlId="formSerachLocation">
-            <Form.Label>Location:</Form.Label>
+            {/* <Form.Label>Location:</Form.Label> */}
             <Form.Control
-              onChange={props.handleChange}
+              className="mr-md-5"
+              onChange={this.handleChange}
               type="text"
               name="keyword"
               value={this.state.keyword}
+              placeholder="Search Your City"
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="dark" type="submit">
             SEARCH
           </Button>
         </Form>

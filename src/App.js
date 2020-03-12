@@ -11,7 +11,7 @@ import Nav from "react-bootstrap/Nav";
 import SignUpContainer from "./components/SignUp/SignUpContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import ItemContainer from "./components/Item/ItemContainer";
-import ItemListContainer from "./components/ItemList/ItemListContainer";
+import HomePage from "./components/Home/HomePage";
 import ImageUploadContainer from "./components/ImageUpload/ImageUploadContainer";
 import ItemDetailsContainer from "./components/ItemDetails/ItemDetailsContainer";
 import Navigation from "./components/Home/Navigation";
@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/signup" component={SignUpContainer} />
           <Route exact path="/login" component={LoginContainer} />
           <Route exact path="/items" component={ItemContainer} />
-          <Route exact path="/" component={ItemListContainer} />
+          <Route exact path="/" component={HomePage} />
           <Route
             exact
             path="/items/:itemId/images"
