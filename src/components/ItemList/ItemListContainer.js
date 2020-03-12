@@ -2,7 +2,7 @@ import React from "react";
 import { getItems } from "../../actions/item";
 import { connect } from "react-redux";
 import ItemList from "./ItemList";
-// import "./ItemList.css";
+import "./ItemList.css";
 
 class ItemListContainer extends React.Component {
   componentDidMount() {
@@ -22,7 +22,7 @@ class ItemListContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN itemList", state);
+  console.log("STATE IN itemList", state);
   return {
     users: state.user,
     items: state.items

@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+import { Form, Button } from "react-bootstrap";
+
 import { Link } from "react-router-dom";
 
 const ItemForm = props => {
@@ -49,7 +49,7 @@ const ItemForm = props => {
         />
       </Form.Group>
       {/* <Link to="/"> */}
-      <Button variant="primary" type="submit">
+      <Button variant="secondary" type="submit">
         SHARE
       </Button>
       {/* </Link> */}

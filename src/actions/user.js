@@ -55,6 +55,8 @@ function loginSuccess(
   username,
   firstName,
   lastName,
+  streetName,
+  houseNumber,
   city,
   latitude,
   longitude
@@ -68,6 +70,8 @@ function loginSuccess(
       username: username,
       firstName: firstName,
       lastName: lastName,
+      streetName: streetName,
+      houseNumber: houseNumber,
       city: city,
       latitude: latitude,
       longitude: longitude
@@ -83,15 +87,29 @@ export const login = (email, password, history) => dispatch => {
     .send({ email, password })
     .then(response => {
       console.log("login response", response);
+      const {
+        jwt,
+        userId,
+        username,
+        firstName,
+        lastName,
+        streetName,
+        houseNumber,
+        city,
+        latitude,
+        longitude
+      } = response.body;
       const action = loginSuccess(
-        response.body.jwt,
-        response.body.userId,
-        response.body.username,
-        response.body.firstName,
-        response.body.lastName,
-        response.body.city,
-        response.body.latitude,
-        response.body.longitude
+        jwt,
+        userId,
+        username,
+        firstName,
+        lastName,
+        streetName,
+        houseNumber,
+        city,
+        latitude,
+        longitude
       );
 
       dispatch(action);
