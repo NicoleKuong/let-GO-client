@@ -11,12 +11,9 @@ export default class HomePage extends Component {
       <div>
         <Jumbotron className="jumbotron">
           <br />
-          <div>
-            <h1>{"let & GO"}</h1>
-            <p>
-              This is a simple hero unit, a simple jumbotron-style component for
-              calling extra attention to featured content or information.
-            </p>
+          <div className="jumbotron-content">
+            <h1 className="jumbotron-title">{"let & GO"}</h1>
+            <p className="jumbotron-text">Share More. Waste Less.</p>
           </div>
           <br />
           <SearchBarLocation />

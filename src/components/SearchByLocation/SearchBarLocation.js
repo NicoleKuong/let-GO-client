@@ -40,7 +40,7 @@ class SearchBarLocation extends Component {
               placeholder="Search Your City"
             />
           </Form.Group>
-          <Button variant="dark" type="submit">
+          <Button variant="secondary" type="submit">
             SEARCH
           </Button>
         </Form>

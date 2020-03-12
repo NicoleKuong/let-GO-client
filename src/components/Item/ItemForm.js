@@ -49,7 +49,7 @@ const ItemForm = props => {
         />
       </Form.Group>
       {/* <Link to="/"> */}
-      <Button variant="dark" type="submit">
+      <Button variant="secondary" type="submit">
         SHARE
       </Button>
       {/* </Link> */}

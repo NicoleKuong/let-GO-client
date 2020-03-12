@@ -4,8 +4,22 @@
 }
 
 .jumbotron {
-  background-image: url(../../assets/sharingAsCaring2.jpg);
+  background-image: url(../../assets/sharingAsCaring.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 350px;
+}
+
+.jumbotron-title {
+  color: #74e7c8;
+  font-size: 3em;
+  background-color: rgba(173, 173, 173, 0.5);
+  margin-right: 950px;
+}
+.jumbotron-text {
+  color: #51adad;
+  font-size: 25px;
+  background-color: rgba(173, 173, 173, 0.5);
+  margin-right: 850px;
+  font-weight: 500;
 }

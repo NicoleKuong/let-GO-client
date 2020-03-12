@@ -27,7 +27,7 @@ const EmailForm = props => {
             placeholder="Enter message for item owner"
           />
         </Form.Group>
-        <Button variant="dark" type="submit">
+        <Button variant="secondary" type="submit">
           SEND MESSAGE
         </Button>
       </Form>

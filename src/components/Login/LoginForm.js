@@ -27,7 +27,7 @@ const LoginForm = props => {
           placeholder="Password"
         />
       </Form.Group>
-      <Button variant="dark" type="submit">
+      <Button variant="secondary" type="submit">
         LOGIN
       </Button>
     </Form>
