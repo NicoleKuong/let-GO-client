@@ -14,12 +14,12 @@
   color: #74e7c8;
   font-size: 3em;
   background-color: rgba(173, 173, 173, 0.5);
-  margin-right: 950px;
+  width: fit-content;
 }
 .jumbotron-text {
   color: #51adad;
   font-size: 25px;
   background-color: rgba(173, 173, 173, 0.5);
-  margin-right: 850px;
+  width: fit-content;
   font-weight: 500;
 }
