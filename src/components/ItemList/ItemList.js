@@ -7,9 +7,7 @@ import { faMapMarkedAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default class ItemList extends Component {
   render() {
-    const { items } = this.props;
-    console.log("itemsssss", items);
-    const { user } = this.props;
+    const { items, user } = this.props;
 
     return (
       <div>
@@ -17,7 +15,11 @@ export default class ItemList extends Component {
         {items && (
           <div>
             {items.map((item, index) => (
-              <Card className="item-card" style={{ width: "18rem" }}>
+              <Card
+                className="item-card"
+                style={{ width: "18rem" }}
+                key={index}
+              >
                 <Card.Img variant="top" src={item.images[0].imageUrl} />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>

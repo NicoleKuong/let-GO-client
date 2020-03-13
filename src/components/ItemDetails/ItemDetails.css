@@ -26,3 +26,9 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
+.item-image {
+  width: 60%;
+  margin-right: 20%;
+  margin-left: 20%;
+}

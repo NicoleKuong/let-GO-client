@@ -20,28 +20,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {/* <Nav variant="pills">
-          <Nav.Item>
-            <Nav.Link as={Link} to="/">
-              Home
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/signup">
-              Sign Up
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/login">
-              Log In
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link as={Link} to="/items">
-              Make an offer
-            </Nav.Link>
-          </Nav.Item>
-        </Nav> */}
         <Navigation />
         <Switch>
           <Route exact path="/signup" component={SignUpContainer} />

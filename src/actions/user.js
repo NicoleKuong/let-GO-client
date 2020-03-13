@@ -9,39 +9,40 @@ function signUpSuccess() {
 }
 
 //create user
+
 export const signUp = (
-  username,
-  email,
-  password,
-  firstName,
-  lastName,
-  streetName,
-  houseNumber,
-  city,
-  telephoneNumber,
-  latitude,
-  longitude,
+  {
+    username,
+    email,
+    password,
+    firstName,
+    lastName,
+    streetName,
+    houseNumber,
+    city,
+    telephoneNumber,
+    latitude,
+    longitude
+  },
   history
 ) => dispatch => {
-  // console.log("==========", username, email, password);
+  const user = {
+    username: username,
+    email: email,
+    password: password,
+    firstName: firstName,
+    lastName: lastName,
+    streetName: streetName,
+    houseNumber: houseNumber,
+    city: city,
+    telephoneNumber: telephoneNumber,
+    latitude: latitude,
+    longitude: longitude
+  };
   request
     .post(`${databaseUrl}/user`)
-    .send({
-      username,
-      email,
-      password,
-      firstName,
-      lastName,
-      streetName,
-      houseNumber,
-      city,
-      telephoneNumber,
-      latitude,
-      longitude
-    })
-
+    .send(user)
     .then(response => {
-      // console.log("response test", response);
       const action = signUpSuccess(response.body);
       dispatch(action);
       history.push("/login");

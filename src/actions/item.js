@@ -16,16 +16,15 @@ function allItems(payload) {
 export const getItems = () => (dispatch, getState) => {
   const state = getState();
   const { items } = state;
+  if (items.length) return;
 
-  if (!items.length) {
-    request(`${databaseUrl}/items`)
-      .then(response => {
-        // console.log("response test!!!!", response);
-        const action = allItems(response.body);
-        dispatch(action);
-      })
-      .catch(console.error);
-  }
+  request(`${databaseUrl}/items`)
+    .then(response => {
+      // console.log("response test!!!!", response);
+      const action = allItems(response.body);
+      dispatch(action);
+    })
+    .catch(console.error);
 };
 
 function newItem(payload) {
@@ -36,7 +35,7 @@ function newItem(payload) {
 }
 
 export const createItem = itemData => (dispatch, getState) => {
-  // console.log("itemData", itemData);
+  console.log("itemData", itemData);
   // console.log("getState in item", getState());
   const token = getState().user.token;
   const userId = getState().user.userId;
