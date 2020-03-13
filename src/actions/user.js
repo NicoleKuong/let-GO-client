@@ -21,12 +21,13 @@ export const signUp = (
   telephoneNumber,
   latitude,
   longitude,
+  // userData,
   history
 ) => dispatch => {
   // console.log("==========", username, email, password);
   request
     .post(`${databaseUrl}/user`)
-    .send({
+    .send(
       username,
       email,
       password,
@@ -38,7 +39,8 @@ export const signUp = (
       telephoneNumber,
       latitude,
       longitude
-    })
+      //   userData
+    )
 
     .then(response => {
       // console.log("response test", response);
@@ -98,6 +100,7 @@ export const login = (email, password, history) => dispatch => {
         city,
         latitude,
         longitude
+        // user
       } = response.body;
       const action = loginSuccess(
         jwt,

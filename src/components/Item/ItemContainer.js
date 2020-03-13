@@ -58,7 +58,7 @@ const mapStateToProps = state => {
   console.log("STATE IN itemCon", state);
   return {
     user: state.user,
-    items: state.items
+    items: state.items.all
   };
 };
 

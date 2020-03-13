@@ -3,6 +3,7 @@ import request from "superagent";
 export const ALL_ITEMS = "ALL_ITEMS";
 export const NEW_ITEM = "NEW_ITEM";
 export const FIND_BY_LOCATION = "FIND_BY_LOCATION";
+export const CLEAR_SEARCH = "CLEAR_SEARCH";
 
 const databaseUrl = "http://localhost:4000";
 
@@ -66,4 +67,16 @@ export const searchByLocation = keyword => dispatch => {
         dispatch(findByLocation(response.body));
       })
       .catch(console.error);
+};
+
+function clearSearch() {
+  console.log("this is clear search");
+  return {
+    type: CLEAR_SEARCH
+  };
+}
+
+export const searchAll = () => (dispatch, getState) => {
+  // console.log("is it here??");
+  dispatch(clearSearch());
 };
