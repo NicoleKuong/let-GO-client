@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { Jumbotron } from "react-bootstrap";
 import ItemListContainer from "../ItemList/ItemListContainer";
-import SearchBarLocation from "../SearchByLocation/SearchBarLocation";
-import { Button, Jumbotron } from "react-bootstrap";
 import "./Home.css";
 
 export default class HomePage extends Component {
   render() {
+    // const searchedItems = this.props.items && this.props.items.length > 0;
     return (
       <div>
         <Jumbotron className="jumbotron">
@@ -16,7 +15,6 @@ export default class HomePage extends Component {
             <p className="jumbotron-text">Share More. Waste Less.</p>
           </div>
           <br />
-          <SearchBarLocation />
         </Jumbotron>
 
         <ItemListContainer />

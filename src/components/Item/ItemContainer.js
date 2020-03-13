@@ -36,8 +36,8 @@ class ItemContainer extends Component {
   };
 
   render() {
-    const itemID = this.props.items.map(item => item.id);
-    // console.log("itemconId", itemID);
+    // const itemID = this.props.items.map(item => item.id);
+    // // console.log("itemconId", itemID);
     return (
       <div>
         <h2 className="create-item-title">Share Your Item</h2>
@@ -47,7 +47,7 @@ class ItemContainer extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           values={this.state}
-          itemId={itemID}
+          // itemId={itemID}
         />
       </div>
     );
@@ -55,7 +55,7 @@ class ItemContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN itemCon", state);
+  console.log("STATE IN itemCon", state);
   return {
     user: state.user,
     items: state.items

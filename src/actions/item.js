@@ -36,7 +36,7 @@ function newItem(payload) {
 
 export const createItem = itemData => (dispatch, getState) => {
   console.log("itemData", itemData);
-  // console.log("getState in item", getState());
+  console.log("getState in item", getState());
   const token = getState().user.token;
   const userId = getState().user.userId;
   const data = { ...itemData, userId };
@@ -62,6 +62,7 @@ export const searchByLocation = keyword => dispatch => {
   if (keyword)
     request(`${databaseUrl}/items/find/${keyword}`)
       .then(response => {
+        console.log("find by location", response.body);
         dispatch(findByLocation(response.body));
       })
       .catch(console.error);

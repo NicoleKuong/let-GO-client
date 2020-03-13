@@ -29,7 +29,22 @@ class SignupFormContainer extends Component {
   handleSubmit = event => {
     event.preventDefault();
     // console.log("hello state", this.state);
-    this.props.dispatch(signUp(this.state, this.props.history));
+    this.props.dispatch(
+      signUp(
+        this.state.username,
+        this.state.email,
+        this.state.password,
+        this.state.firstName,
+        this.state.lastName,
+        this.state.streetName,
+        this.state.houseNumber,
+        this.state.city,
+        this.state.telephoneNumber,
+        this.state.latitude,
+        this.state.longitude,
+        this.props.history
+      )
+    );
     this.setState({
       username: "",
       email: "",

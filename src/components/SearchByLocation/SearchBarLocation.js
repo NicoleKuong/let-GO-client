@@ -9,8 +9,7 @@ class SearchBarLocation extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("submit?", this.props);
-    // props.fetchProducts();
+
     this.props.searchByLocation(this.state.keyword);
     this.setState({
       keyword: ""
