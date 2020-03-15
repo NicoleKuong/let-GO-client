@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import { Button } from "react-bootstrap";
 import axios from "axios";
+import { toast } from "react-toastify";
+
 // if (process.env.NODE_ENV !== "production") {
 //   require("dotenv").config();
 // }
