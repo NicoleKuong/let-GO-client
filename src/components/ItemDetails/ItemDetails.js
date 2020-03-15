@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import { Carousel, Button, Card, Accordion } from "react-bootstrap";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import EmailContainer from "../Email/EmailContainer";
-
+import Payment from "../Payment/Payment";
 import "./ItemDetails.css";
 
 export default class ItemDetails extends Component {
   render() {
-    const { items, itemID } = this.props;
+    const { items, itemID, handlePayment } = this.props;
     const currentItem = items.find(item => item.id === parseInt(itemID));
     const { title, price, description, user, images } = currentItem;
-
-    // console.log("currentitem", currentItem);
 
     return (
       <div className="item-container">
@@ -54,6 +52,8 @@ export default class ItemDetails extends Component {
           </Card>
         </Accordion>
         <br />
+        <Payment currentItem={currentItem} />
+
         {currentItem.user && (
           <Map center={[user.latitude, user.longitude]} zoom={13}>
             <TileLayer
