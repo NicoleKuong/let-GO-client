@@ -3,6 +3,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 // if (process.env.NODE_ENV !== "production") {
 //   require("dotenv").config();
@@ -12,17 +13,27 @@ import { toast } from "react-toastify";
 // console.log("key!!!", publicKey);
 // console.log("currentitem", currentItem);
 
+toast.configure();
 export default class Payment extends Component {
   handlePayment = async token => {
     const databaseUrl = "http://localhost:4000";
-    const { currentItem } = this.props;
+    const { title, price } = this.props.currentItem;
     // console.log({ token, currentItem });
 
     const response = await axios.post(`${databaseUrl}/payment`, {
       token,
-      currentItem
+      title,
+      price
     });
     const { status } = response.data;
+    console.log("Status##", response.data);
+    if (status === "success") {
+      toast("Payment is successful. Please check email for details", {
+        type: "success"
+      });
+    } else {
+      toast("Payment is not successful", { type: "error" });
+    }
   };
 
   render() {

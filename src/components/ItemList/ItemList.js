@@ -57,7 +57,7 @@ export default class ItemList extends Component {
     const { items, searchedItems } = this.props;
     // console.log("itemsss", searchedItems);
     const hasSearchedItems = searchedItems && searchedItems.length > 0;
-    console.log("hasSearchedItems", hasSearchedItems);
+    // console.log("hasSearchedItems", hasSearchedItems);
 
     return (
       <div>
