@@ -1,11 +1,9 @@
 import request from "superagent";
-
+import databaseUrl from "../constants";
 export const ALL_ITEMS = "ALL_ITEMS";
 export const NEW_ITEM = "NEW_ITEM";
 export const FIND_BY_LOCATION = "FIND_BY_LOCATION";
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
-
-const databaseUrl = "http://localhost:4000";
 
 function allItems(payload) {
   return {
