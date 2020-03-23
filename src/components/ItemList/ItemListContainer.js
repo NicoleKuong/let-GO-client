@@ -14,7 +14,7 @@ class ItemListContainer extends React.Component {
       <div>
         <ItemList
           items={this.props.items}
-          user={this.props.users}
+          // loginUser={this.props.users}
           searchedItems={this.props.searchedItems}
         />
       </div>
@@ -23,7 +23,7 @@ class ItemListContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN itemList", state);
+  // console.log("STATE IN itemList", state.items.all);
   return {
     users: state.user,
     items: state.items.all,

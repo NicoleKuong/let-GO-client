@@ -21,7 +21,7 @@ export const getItems = () => (dispatch, getState) => {
 
   request(`${databaseUrl}/items`)
     .then(response => {
-      // console.log("response test!!!!", response);
+      // console.log("response test item!!!!", response.body);
       const action = allItems(response.body);
       dispatch(action);
     })
@@ -36,10 +36,10 @@ function newItem(payload) {
 }
 
 export const createItem = itemData => (dispatch, getState) => {
-  console.log("itemData", itemData);
-  console.log("getState in item", getState());
+  // console.log("itemData", itemData);
+  // console.log("getState in item", getState());
   const token = getState().user.token;
-  const userId = getState().user.userId;
+  const userId = getState().user.user.id;
   const data = { ...itemData, userId };
   request
     .post(`${databaseUrl}/items`)
@@ -70,7 +70,7 @@ export const searchByLocation = keyword => dispatch => {
 };
 
 function clearSearch() {
-  console.log("this is clear search");
+  // console.log("this is clear search");
   return {
     type: CLEAR_SEARCH
   };

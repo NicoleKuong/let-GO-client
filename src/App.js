@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
   Redirect
 } from "react-router-dom";
-import Nav from "react-bootstrap/Nav";
+
 import SignUpContainer from "./components/SignUp/SignUpContainer";
 import LoginContainer from "./components/Login/LoginContainer";
 import ItemContainer from "./components/Item/ItemContainer";

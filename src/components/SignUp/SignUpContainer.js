@@ -28,7 +28,7 @@ class SignupFormContainer extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log("hello state", this.state);
+    console.log("hello state", this.state);
     this.props.dispatch(
       signUp(
         // this.state.username,
@@ -120,7 +120,7 @@ class SignupFormContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log("STATE IN MSTP", state);
+  console.log("STATE IN MSTP", state);
   return {
     user: state.user
   };

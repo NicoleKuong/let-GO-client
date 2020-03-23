@@ -55,7 +55,7 @@ import SearchBarLocation from "../SearchByLocation/SearchBarLocation";
 export default class ItemList extends Component {
   render() {
     const { items, searchedItems } = this.props;
-    // console.log("itemsss", searchedItems);
+    // console.log("itemsss", items);
     const hasSearchedItems = searchedItems && searchedItems.length > 0;
     // console.log("hasSearchedItems", hasSearchedItems);
 

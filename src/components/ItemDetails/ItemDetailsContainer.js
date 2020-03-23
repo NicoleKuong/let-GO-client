@@ -17,7 +17,7 @@ class ItemDetailsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE IN itemdetailsCon", state);
+  // console.log("STATE IN itemdetailsCon", state);
   return {
     user: state.user,
     items: state.items.all

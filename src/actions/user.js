@@ -10,36 +10,36 @@ function signUpSuccess() {
 
 //create user
 export const signUp = (
-  username,
-  email,
-  password,
-  firstName,
-  lastName,
-  streetName,
-  houseNumber,
-  city,
-  telephoneNumber,
-  latitude,
-  longitude,
-  // userData,
+  // username,
+  // email,
+  // password,
+  // firstName,
+  // lastName,
+  // streetName,
+  // houseNumber,
+  // city,
+  // telephoneNumber,
+  // latitude,
+  // longitude,
+  userData,
   history
 ) => dispatch => {
-  // console.log("==========", username, email, password);
+  console.log("==========", userData);
   request
     .post(`${databaseUrl}/user`)
     .send(
-      username,
-      email,
-      password,
-      firstName,
-      lastName,
-      streetName,
-      houseNumber,
-      city,
-      telephoneNumber,
-      latitude,
-      longitude
-      //   userData
+      // username,
+      // email,
+      // password,
+      // firstName,
+      // lastName,
+      // streetName,
+      // houseNumber,
+      // city,
+      // telephoneNumber,
+      // latitude,
+      // longitude
+      userData
     )
 
     .then(response => {
@@ -53,66 +53,68 @@ export const signUp = (
 
 function loginSuccess(
   token,
-  userId,
-  username,
-  firstName,
-  lastName,
-  streetName,
-  houseNumber,
-  city,
-  latitude,
-  longitude
+  // userId,
+  // username,
+  // firstName,
+  // lastName,
+  // streetName,
+  // houseNumber,
+  // city,
+  // latitude,
+  // longitude
+  user
 ) {
-  // console.log("is this an id? 2", userId);
+  console.log("is this an id? 2", token, user);
   return {
     type: LOGIN_SUCCESS,
     payload: {
       token: token,
-      userId: userId,
-      username: username,
-      firstName: firstName,
-      lastName: lastName,
-      streetName: streetName,
-      houseNumber: houseNumber,
-      city: city,
-      latitude: latitude,
-      longitude: longitude
+      // userId: userId,
+      // username: username,
+      // firstName: firstName,
+      // lastName: lastName,
+      // streetName: streetName,
+      // houseNumber: houseNumber,
+      // city: city,
+      // latitude: latitude,
+      // longitude: longitude
+      user: user
     }
   };
 }
 
 //login
 export const login = (email, password, history) => dispatch => {
-  // console.log("login", request.body);
   request
     .post(`${databaseUrl}/login`)
     .send({ email, password })
     .then(response => {
-      console.log("login response", response);
+      // console.log("login response", response.body);
       const {
         jwt,
-        userId,
-        username,
-        firstName,
-        lastName,
-        streetName,
-        houseNumber,
-        city,
-        latitude,
-        longitude
-        // user
+        // userId,
+        // username,
+        // firstName,
+        // lastName,
+        // streetName,
+        // houseNumber,
+        // city,
+        // latitude,
+        // longitude
+        user
       } = response.body;
       const action = loginSuccess(
         jwt,
-        userId,
-        username,
-        firstName,
-        lastName,
-        streetName,
-        houseNumber,
-        city,
-        latitude,
-        longitude
+        // userId,
+        // username,
+        // firstName,
+        // lastName,
+        // streetName,
+        // houseNumber,
+        // city,
+        // latitude,
+        // longitude
+        user
       );
 
       dispatch(action);

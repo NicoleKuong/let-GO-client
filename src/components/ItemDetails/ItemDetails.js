@@ -7,7 +7,7 @@ import "./ItemDetails.css";
 
 export default class ItemDetails extends Component {
   render() {
-    const { items, itemID, handlePayment } = this.props;
+    const { items, itemID } = this.props;
     const currentItem = items.find(item => item.id === parseInt(itemID));
     const { title, price, description, user, images } = currentItem;
 

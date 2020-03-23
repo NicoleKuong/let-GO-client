@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./Payment.css";
 
 // if (process.env.NODE_ENV !== "production") {
 //   require("dotenv").config();
@@ -49,7 +50,7 @@ export default class Payment extends Component {
           billingAddress
           shippingAddress
         >
-          <Button variant="secondary" type="submit">
+          <Button className="payment-btn" variant="secondary" type="submit">
             RENT NOW
           </Button>
         </StripeCheckout>
