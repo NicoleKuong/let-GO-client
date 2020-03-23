@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ItemForm = props => {
   // console.log("itemform props", props);
-  // const { itemId } = props;
+
   return (
     <Form className="itemform" onSubmit={props.handleSubmit}>
       <Form.Group controlId="formUserName">

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Form, Button } from "react-bootstrap";
-import { searchByLocation } from "../../actions/item";
+import { searchByLocation, searchAll } from "../../actions/item";
+
 import "./SearchBarLocation.css";
 
 class SearchBarLocation extends Component {
@@ -9,16 +10,32 @@ class SearchBarLocation extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("submit?", this.props);
-    // props.fetchProducts();
     this.props.searchByLocation(this.state.keyword);
+
     this.setState({
       keyword: ""
     });
+    this.checkKeyword();
+  };
+
+  handleClearSubmit = event => {
+    event.preventDefault();
+
+    this.setState({
+      keyword: ""
+    });
+    this.checkKeyword();
   };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  checkKeyword = () => {
+    // console.log("check here");
+    if (this.state.keyword === "") {
+      this.props.searchAll();
+    }
   };
 
   render() {
@@ -27,12 +44,14 @@ class SearchBarLocation extends Component {
         <Form
           className="search-bar-location"
           onSubmit={this.handleSubmit}
-          inline
+          // inline
         >
-          <Form.Group controlId="formSerachLocation">
-            {/* <Form.Label>Location:</Form.Label> */}
+          <Form.Group
+            className="search-bar-field"
+            controlId="formSerachLocation"
+          >
             <Form.Control
-              className="mr-md-5"
+              className="input-group"
               onChange={this.handleChange}
               type="text"
               name="keyword"
@@ -40,8 +59,15 @@ class SearchBarLocation extends Component {
               placeholder="Search Your City"
             />
           </Form.Group>
-          <Button variant="secondary" type="submit">
+          <Button className="search-bar-btn" variant="secondary" type="submit">
             SEARCH
+          </Button>
+          <Button
+            className="clearn-search-btn"
+            variant="secondary"
+            onClick={this.handleClearSubmit}
+          >
+            CLEAR SEARCH
           </Button>
         </Form>
       </div>
@@ -49,4 +75,6 @@ class SearchBarLocation extends Component {
   }
 }
 
-export default connect(null, { searchByLocation })(SearchBarLocation);
+export default connect(null, { searchByLocation, searchAll })(
+  SearchBarLocation
+);

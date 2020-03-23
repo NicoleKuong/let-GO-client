@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, Button, Nav } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo_no_text from "../../assets/logo_no_text.png";
 import "./Home.css";
@@ -8,7 +8,6 @@ export default class Navigation extends Component {
   render() {
     return (
       <div>
-        {/* <Navbar className="nav-bar" collapseOnSelect expand="lg" variant="info"> */}
         <Navbar
           className="nav-bar"
           collapseOnSelect

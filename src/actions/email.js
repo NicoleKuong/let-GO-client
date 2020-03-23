@@ -1,8 +1,6 @@
 import request from "superagent";
-
+import databaseUrl from "../constants";
 export const NEW_EMAIL = "NEW_EMAIL";
-
-const databaseUrl = "http://localhost:4000";
 
 function newEmail(payload) {
   return {

@@ -26,8 +26,6 @@ class EmailContainer extends Component {
   };
 
   render() {
-    // const itemID = this.props.items.map(item => item.id);
-    // console.log("itemconId", itemID);
     return (
       <div>
         <EmailForm
