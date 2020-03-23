@@ -7,13 +7,12 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Payment.css";
 
-// if (process.env.NODE_ENV !== "production") {
-//   require("dotenv").config();
-// }
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
-// const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+const publicKey = process.env.REACT_APP_PUBLIC_KEY;
 // console.log("key!!!", publicKey);
-// console.log("currentitem", currentItem);
 
 toast.configure();
 export default class Payment extends Component {
@@ -43,7 +42,7 @@ export default class Payment extends Component {
     return (
       <div>
         <StripeCheckout
-          stripeKey="pk_test_BUbsWezAWcQO98PoVVM3cDrs00ii9f5FOg"
+          stripeKey={publicKey}
           token={this.handlePayment}
           name={currentItem.title}
           amount={currentItem.price * 100}
