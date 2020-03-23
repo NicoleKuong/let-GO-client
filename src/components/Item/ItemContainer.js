@@ -36,7 +36,6 @@ class ItemContainer extends Component {
   };
 
   render() {
-    // const itemID = this.props.items.map(item => item.id);
     // // console.log("itemconId", itemID);
     return (
       <div>
@@ -47,7 +46,6 @@ class ItemContainer extends Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           values={this.state}
-          // itemId={itemID}
         />
       </div>
     );

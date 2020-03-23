@@ -51,7 +51,7 @@ class LoginContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("log in form ", state);
+  // console.log("log in form ", state);
   return {
     user: state.user
   };

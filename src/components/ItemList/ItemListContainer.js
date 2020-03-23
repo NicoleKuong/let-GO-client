@@ -14,7 +14,6 @@ class ItemListContainer extends React.Component {
       <div>
         <ItemList
           items={this.props.items}
-          // loginUser={this.props.users}
           searchedItems={this.props.searchedItems}
         />
       </div>
