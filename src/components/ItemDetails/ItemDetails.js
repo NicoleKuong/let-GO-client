@@ -29,11 +29,18 @@ export default class ItemDetails extends Component {
         </Carousel>
 
         <Card className="item-info">
-          <Card.Header>Title:{title}</Card.Header>
+          <Card.Header>
+            <strong>Title: </strong>
+            {title}
+          </Card.Header>
           <Card.Body>
-            <Card.Title>Price: {price}</Card.Title>
-            <Card.Text>Description: {description}</Card.Text>
-            <Card.Text>City: {user.city}</Card.Text>
+            <Card.Title>Price: € {price}</Card.Title>
+            <Card.Text>
+              <strong>Description:</strong> <br /> {description}
+            </Card.Text>
+            <Card.Text>
+              <strong>City:</strong> {user.city}
+            </Card.Text>
           </Card.Body>
         </Card>
 

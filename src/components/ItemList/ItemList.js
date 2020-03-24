@@ -28,7 +28,7 @@ export default class ItemList extends Component {
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Text>Description: {item.description}</Card.Text>
-                  <Card.Text>Price: {item.price}</Card.Text>
+                  <Card.Text>Price: €{item.price}</Card.Text>
                   <Card.Text>
                     <FontAwesomeIcon icon={faMapMarkedAlt} /> {item.user.city},
                     Netherlands
@@ -50,9 +50,15 @@ export default class ItemList extends Component {
               >
                 <Card.Img variant="top" src={item.images[0].imageUrl} />
                 <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>Description: {item.description}</Card.Text>
-                  <Card.Text>Price: {item.price}</Card.Text>
+                  <Card.Title style={{ textAlign: "center" }}>
+                    {item.title}
+                  </Card.Title>
+                  <Card.Text>
+                    <strong>Description:</strong> <br /> {item.description}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Price:</strong> € {item.price}
+                  </Card.Text>
                   <Card.Text>
                     <FontAwesomeIcon icon={faMapMarkedAlt} /> {item.user.city},
                     Netherlands

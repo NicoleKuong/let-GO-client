@@ -24,7 +24,7 @@ const EmailForm = props => {
             onChange={props.handleChange}
             name="message"
             value={props.values.message}
-            placeholder="Enter message for item owner"
+            placeholder="Send a message to the owner for details"
           />
         </Form.Group>
         <Button variant="secondary" type="submit">

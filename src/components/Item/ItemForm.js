@@ -25,12 +25,12 @@ const ItemForm = props => {
           type="text"
           name="description"
           value={props.values.description}
-          placeholder="Enter event description"
+          placeholder="Enter item description"
         />
       </Form.Group>
 
       <Form.Group controlId="formImage">
-        <Form.Label>Price :</Form.Label>
+        <Form.Label>Price:</Form.Label>
         <Form.Control
           onChange={props.handleChange}
           type="number"

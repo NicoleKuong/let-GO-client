@@ -39,7 +39,9 @@ class ItemContainer extends Component {
     // // console.log("itemconId", itemID);
     return (
       <div>
-        <h2 className="create-item-title">Share Your Item</h2>
+        <br />
+        <h2 className="create-item-title">Make an offer for your item</h2>
+        <br />
         <ImageUploadContainer setImgUrls={this.setImgUrls} />
         <ItemForm
           text={"itemForm"}

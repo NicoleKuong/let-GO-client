@@ -6,7 +6,7 @@ export default class ImageUploadContainer extends Component {
   // specify upload params and url for your files
   getUploadParams = ({ file, meta }) => {
     const body = new FormData();
-    console.log("body", body);
+    // console.log("body", body);
     body.append("file", file);
     body.append("upload_preset", "nkuong");
 
