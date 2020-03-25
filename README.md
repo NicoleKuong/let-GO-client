@@ -26,7 +26,7 @@ let & GO promotes sustainability :recycle: and communal sharing :couple: . This 
 - [Nodemailer](https://github.com/NicoleKuong/let-Go-server/blob/master/email/router.js) :white_check_mark:
 - [Stripe](https://github.com/NicoleKuong/let-Go-server/blob/master/payment/router.js) :white_check_mark:
 
-:white\*check*mark: \_New technology learned during this project*
+:white_check_mark: _New technology learned during this project_
 
 ## Goals for this project
 
@@ -54,7 +54,7 @@ _This mvp is still a work in progress. Some features still need to be implemente
 
 ### Wireframe
 
-[click here for the wireframs for this project in Mockflow](https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M942ed8396a84abfa15da1942fd72dc921583161154742&publicid=7653f18c4b5246a193328bc3cac7ca79#/page/550f39dc6adb49fc87e2187b51296e30)
+[Click here for the wireframs for this project in Mockflow](https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M942ed8396a84abfa15da1942fd72dc921583161154742&publicid=7653f18c4b5246a193328bc3cac7ca79#/page/550f39dc6adb49fc87e2187b51296e30)
 
 ## Git workflow
 
@@ -67,8 +67,8 @@ In this project I try to use:
 #### 👀👇 Click links to view samples of pull requests 👇👀
 
 - [feat/payment page](https://github.com/NicoleKuong/let-GO-client/pull/9)
-- [codereview](https://github.com/NicoleKuong/let-GO-client/pull/8)
+- [Code Review](https://github.com/NicoleKuong/let-GO-client/pull/8)
 
 ## Server-repo
 
-The server side of this project is an Express server connected to a Sequelize database. [click here for more details](https://github.com/NicoleKuong/let-Go-server)
+The server side of this project is an Express server connected to a Sequelize database. [Click here for more details](https://github.com/NicoleKuong/let-Go-server)
