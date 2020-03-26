@@ -1,4 +1,4 @@
-import { USER_CREATED, LOGIN_SUCCESS } from "../actions/user";
+import { USER_CREATED, LOGIN_SUCCESS, LOGOUT_USER } from "../actions/user";
 
 const initialState = {};
 export default (state = initialState, action = {}) => {
@@ -8,8 +8,13 @@ export default (state = initialState, action = {}) => {
       return { ...state, userCreated: true };
 
     case LOGIN_SUCCESS:
-      console.log("What is the user action.payload", action.payload);
+      // console.log("What is the user action.payload", action.payload);
       return { ...state, ...action.payload };
+    case LOGOUT_USER:
+      return {
+        token: "",
+        user: {}
+      };
 
     default:
       return state;

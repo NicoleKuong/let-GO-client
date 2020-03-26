@@ -22,7 +22,7 @@ let & GO promotes sustainability :recycle: and communal sharing :couple: . This 
   - [REST API](https://github.com/NicoleKuong/let-Go-server/blob/master/item/router.js)
 - [Sequelize](https://github.com/NicoleKuong/let-Go-server/blob/master/user/model.js)
 - [React-Bootstrap](https://github.com/sssgordon/project-outcry-client/blob/master/src/components/DetailsForm/DetailsForm.js)
-- [Geoloaction](https://github.com/NicoleKuong/let-GO-client/blob/master/src/components/SignUp/SignUpContainer.js) :star:
+- [Geolocation](https://github.com/NicoleKuong/let-GO-client/blob/master/src/components/SignUp/SignUpContainer.js) :star:
 - [React-Dropzone-Uploader](https://github.com/NicoleKuong/let-GO-client/blob/master/src/components/ImageUpload/ImageUploadContainer.js) :star:
 - [React-Leaflet](https://github.com/NicoleKuong/let-GO-client/blob/master/src/components/ItemDetails/ItemDetails.js) :star:
 - [Nodemailer](https://github.com/NicoleKuong/let-Go-server/blob/master/email/router.js) :star:
