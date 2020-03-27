@@ -18,7 +18,7 @@ let & GO promotes sustainability :recycle: and communal sharing :couple: . This 
 ![let-go_Screenshot2](https://user-images.githubusercontent.com/48523895/77710430-3ddc1100-6fce-11ea-9dc3-f8462d935d61.png)
 ![let-go_Screenshot](https://user-images.githubusercontent.com/48523895/77710385-1f761580-6fce-11ea-9313-3ad89e46bb14.png)
 ![let-go_Screenshot3](https://user-images.githubusercontent.com/48523895/77710605-cce92900-6fce-11ea-80b4-62d6073d69d2.png)
-![let-go-gif1](https://github.com/NicoleKuong/let-GO-client/tree/master/src/assets/lego-gif-1.gif)
+![let-go-gif1](https://github.com/NicoleKuong/let-GO-client/blob/master/src/assets/lego-gif-1.gif)
 
 ## Technology used
 
