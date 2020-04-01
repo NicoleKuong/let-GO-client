@@ -2,17 +2,18 @@ import React, { Component } from "react";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import databaseUrl from "../../constants";
+import publicKey from "../../constants";
 import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Payment.css";
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+// if (process.env.NODE_ENV !== "production") {
+//   require("dotenv").config();
+// }
 
-const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-// console.log("key!!!", publicKey);
+// const publicKey = process.env.REACT_APP_PUBLIC_KEY;
+console.log("key!!!", publicKey);
 
 toast.configure();
 export default class Payment extends Component {
