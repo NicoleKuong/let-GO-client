@@ -64,7 +64,7 @@ _This mvp is still a work in progress. Some features still need to be implemente
 
 ### Wireframe
 
-[Click here for the wireframs for this project in Mockflow](https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M942ed8396a84abfa15da1942fd72dc921583161154742&publicid=7653f18c4b5246a193328bc3cac7ca79#/page/550f39dc6adb49fc87e2187b51296e30)
+[Click here for the wireframes for this project in Mockflow](https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M942ed8396a84abfa15da1942fd72dc921583161154742&publicid=7653f18c4b5246a193328bc3cac7ca79#/page/550f39dc6adb49fc87e2187b51296e30)
 
 ## Git workflow
 

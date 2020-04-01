@@ -10,7 +10,7 @@ function signUpSuccess() {
 
 //create user
 export const signUp = (userData, history) => dispatch => {
-  // console.log("==========", userData);
+  console.log("==========", databaseUrl);
   request
     .post(`${databaseUrl}/user`)
     .send(userData)
