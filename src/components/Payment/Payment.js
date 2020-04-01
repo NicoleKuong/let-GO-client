@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Payment.css";
 
+//for delpoyment purpose, I removed the public key from .env in order to be visible on github
+
 // if (process.env.NODE_ENV !== "production") {
 //   require("dotenv").config();
 // }
