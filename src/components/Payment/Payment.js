@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import StripeCheckout from "react-stripe-checkout";
 import databaseUrl from "../../constants";
-import publicKey from "../../constants";
+
 import { Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +13,6 @@ import "./Payment.css";
 // }
 
 // const publicKey = process.env.REACT_APP_PUBLIC_KEY;
-console.log("key!!!", publicKey);
 
 toast.configure();
 export default class Payment extends Component {
@@ -43,7 +42,7 @@ export default class Payment extends Component {
     return (
       <div>
         <StripeCheckout
-          stripeKey={publicKey}
+          stripeKey="pk_test_BUbsWezAWcQO98PoVVM3cDrs00ii9f5FOg"
           token={this.handlePayment}
           name={currentItem.title}
           amount={currentItem.price * 100}
