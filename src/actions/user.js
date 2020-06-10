@@ -18,7 +18,7 @@ export const signUp = (userData, history) => (dispatch) => {
     .send(userData)
 
     .then((response) => {
-      // console.log("response test", response);
+      console.log("response test", response);
       const action = signUpSuccess(response.body);
       dispatch(action);
       history.push("/login");

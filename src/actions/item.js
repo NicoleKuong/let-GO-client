@@ -21,7 +21,7 @@ export const getItems = () => (dispatch, getState) => {
   console.log("URLLLLL", databaseUrl);
   request(`${databaseUrl}/items`)
     .then((response) => {
-      // console.log("response test item!!!!", response.body);
+      console.log("response test item!!!!", response.body);
       const action = allItems(response.body);
       dispatch(action);
     })

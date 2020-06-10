@@ -15,7 +15,7 @@ export const createEmail = (emailData, ownerEmail) => (dispatch, getState) => {
   // console.log("*****", emailData, ownerEmail);
   // console.log("email getState", getState().user);
 
-  // console.log("dataURl!!!!!!!!", databaseUrl);
+  console.log("dataURl!!!!!!!!", databaseUrl);
   const token = getState().user.token;
   const data = { ...emailData, ownerEmail };
 

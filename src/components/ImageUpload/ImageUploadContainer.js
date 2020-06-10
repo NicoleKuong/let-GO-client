@@ -13,7 +13,7 @@ export default class ImageUploadContainer extends Component {
     return {
       url: "https://api.cloudinary.com/v1_1/dwkbnuezz/image/upload",
       body,
-      headers: { "X-Requested-With": "XMLHttpRequest" }
+      headers: { "X-Requested-With": "XMLHttpRequest" },
     };
   };
 
@@ -24,13 +24,13 @@ export default class ImageUploadContainer extends Component {
 
   // receives array of files that are done uploading when submit button is clicked
   handleSubmit = async (files, allFiles) => {
-    const responses = files.map(f => JSON.parse(f.xhr.responseText));
-    const urls = responses.map(response => {
+    const responses = files.map((f) => JSON.parse(f.xhr.responseText));
+    const urls = responses.map((response) => {
       return response.url;
     });
-    // console.log("cloud urls", urls);
+    console.log("cloud urls", urls);
     await this.props.setImgUrls(urls);
-    allFiles.forEach(f => f.remove());
+    allFiles.forEach((f) => f.remove());
   };
 
   render() {
