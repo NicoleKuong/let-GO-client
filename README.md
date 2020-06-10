@@ -2,7 +2,7 @@
 
 ## What this app is about
 
-:wave:[Check out the deployed version](https://let-go.netlify.app/):wave:
+:wave:[Check out the deployed version](https://let-and-go.netlify.app/):wave:
 
 let & GO promotes sustainability :recycle: and communal sharing :couple: . This application allows users to rent out or lease their stuff to their neighbours and build up neighbourhood bonds. With let & GO, you never need to clutter your house with things you only use once or twice. You can finally meet your neighbours while earning some extra money :moneybag: by sharing your stuff that you haven't use for a while.
 
