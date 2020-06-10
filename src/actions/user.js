@@ -4,18 +4,20 @@ export const USER_CREATED = "USER_CREATED";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGOUT_USER = "LOGOUT_USER";
 
+// const databaseUrl = "http://localhost:4000";
+
 function signUpSuccess() {
   return { type: USER_CREATED };
 }
 
 //create user
-export const signUp = (userData, history) => dispatch => {
+export const signUp = (userData, history) => (dispatch) => {
   console.log("==========", databaseUrl);
   request
     .post(`${databaseUrl}/user`)
     .send(userData)
 
-    .then(response => {
+    .then((response) => {
       // console.log("response test", response);
       const action = signUpSuccess(response.body);
       dispatch(action);
@@ -29,17 +31,17 @@ function loginSuccess(token, user) {
     type: LOGIN_SUCCESS,
     payload: {
       token: token,
-      user: user
-    }
+      user: user,
+    },
   };
 }
 
 //login
-export const login = (email, password, history) => dispatch => {
+export const login = (email, password, history) => (dispatch) => {
   request
     .post(`${databaseUrl}/login`)
     .send({ email, password })
-    .then(response => {
+    .then((response) => {
       console.log("login response", response.body);
       const { jwt, user } = response.body;
       const action = loginSuccess(jwt, user);
@@ -53,6 +55,6 @@ export const login = (email, password, history) => dispatch => {
 //logout
 export function logout() {
   return {
-    type: LOGOUT_USER
+    type: LOGOUT_USER,
   };
 }

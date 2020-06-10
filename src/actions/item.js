@@ -5,10 +5,12 @@ export const NEW_ITEM = "NEW_ITEM";
 export const FIND_BY_LOCATION = "FIND_BY_LOCATION";
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 
+// const databaseUrl = "http://localhost:4000";
+
 function allItems(payload) {
   return {
     type: ALL_ITEMS,
-    payload
+    payload,
   };
 }
 
@@ -16,9 +18,9 @@ export const getItems = () => (dispatch, getState) => {
   const state = getState();
   const { items } = state;
   if (items.length) return;
-
+  console.log("URLLLLL", databaseUrl);
   request(`${databaseUrl}/items`)
-    .then(response => {
+    .then((response) => {
       // console.log("response test item!!!!", response.body);
       const action = allItems(response.body);
       dispatch(action);
@@ -29,13 +31,14 @@ export const getItems = () => (dispatch, getState) => {
 function newItem(payload) {
   return {
     type: NEW_ITEM,
-    payload
+    payload,
   };
 }
 
-export const createItem = itemData => (dispatch, getState) => {
+export const createItem = (itemData) => (dispatch, getState) => {
   // console.log("itemData", itemData);
   // console.log("getState in item", getState());
+  console.log("dataURl", databaseUrl);
   const token = getState().user.token;
   const userId = getState().user.user.id;
   const data = { ...itemData, userId };
@@ -43,7 +46,7 @@ export const createItem = itemData => (dispatch, getState) => {
     .post(`${databaseUrl}/items`)
     .set("Authorization", `Bearer ${token}`)
     .send(data)
-    .then(response => {
+    .then((response) => {
       const action = newItem(response.body);
       dispatch(action);
     })
@@ -53,14 +56,14 @@ export const createItem = itemData => (dispatch, getState) => {
 function findByLocation(payload) {
   return {
     type: FIND_BY_LOCATION,
-    payload
+    payload,
   };
 }
 
-export const searchByLocation = keyword => dispatch => {
+export const searchByLocation = (keyword) => (dispatch) => {
   if (keyword)
     request(`${databaseUrl}/items/find/${keyword}`)
-      .then(response => {
+      .then((response) => {
         console.log("find by location", response.body);
         dispatch(findByLocation(response.body));
       })
@@ -70,7 +73,7 @@ export const searchByLocation = keyword => dispatch => {
 function clearSearch() {
   // console.log("this is clear search");
   return {
-    type: CLEAR_SEARCH
+    type: CLEAR_SEARCH,
   };
 }
 

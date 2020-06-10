@@ -21,12 +21,12 @@ class ItemListContainer extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  // console.log("STATE IN itemList", state.items.all);
+const mapStateToProps = (state) => {
+  console.log("STATE IN itemList", state.items.all);
   return {
     users: state.user,
     items: state.items.all,
-    searchedItems: state.items.searched
+    searchedItems: state.items.searched,
   };
 };
 

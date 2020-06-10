@@ -18,20 +18,21 @@ import "./Payment.css";
 
 toast.configure();
 export default class Payment extends Component {
-  handlePayment = async token => {
+  handlePayment = async (token) => {
+    // const databaseUrl = "http://localhost:4000";
     const { title, price } = this.props.currentItem;
     // console.log({ token, currentItem });
 
     const response = await axios.post(`${databaseUrl}/payment`, {
       token,
       title,
-      price
+      price,
     });
     const { status } = response.data;
     // console.log("Status##", response.data);
     if (status === "success") {
       toast("Payment is successful. Please check email for details", {
-        type: "success"
+        type: "success",
       });
     } else {
       toast("Payment is not successful", { type: "error" });

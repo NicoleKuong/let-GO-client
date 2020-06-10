@@ -16,11 +16,11 @@ class ItemDetailsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  // console.log("STATE IN itemdetailsCon", state);
+const mapStateToProps = (state) => {
+  console.log("STATE IN itemdetailsCon", state);
   return {
     user: state.user,
-    items: state.items.all
+    items: state.items.all,
   };
 };
 
